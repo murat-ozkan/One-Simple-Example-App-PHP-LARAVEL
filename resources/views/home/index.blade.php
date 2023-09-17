@@ -1,5 +1,5 @@
 @extends('layouts.layout')
 
 @section('content')
-Anasayfa
+Home Page
 @endsection

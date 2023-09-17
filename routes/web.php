@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//? Basit olarak hangi url hangi fonksiyonu tetikleyecek...
 Route::get('/',  [HomeController::class, "index"]);
 Route::get('/index', [HomeController::class, "index"]);
 Route::get('/contact', [HomeController::class, "contact"]);
