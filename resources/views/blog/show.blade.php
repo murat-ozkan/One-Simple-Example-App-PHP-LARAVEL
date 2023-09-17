@@ -2,10 +2,11 @@
 
 @section('content')
 Content Area
-    @if ($active==true) 
+    @if ($active) 
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{$title}}</h5>
+                <p>{{$id}}</p>
                 <p>{{$description}}</p>
                 <p>{{$likeCount}} likes</p>
             </div>

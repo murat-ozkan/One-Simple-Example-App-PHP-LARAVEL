@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,48 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/index', function () {
-    return view('index');
-});
-
-Route::get("/blogs", function () {
-    $data = [
-        [
-            "id" => 1,
-            "title" => "Laravel Dersleri",
-            "description" => "Nice Framework",
-            "likeCount" => 50,
-            "active" => true,
-        ],
-        [
-            "id" => 2,
-            "title" => "Django Dersleri",
-            "description" => "Nice Framework",
-            "likeCount" => 41,
-            "active" => true,
-        ],
-        [
-            "id" => 3,
-            "title" => "React Dersleri",
-            "description" => "Nice Framework",
-            "likeCount" => 30,
-            "active" => true,
-        ],
-    ];
-    return view("blogs", ["blogs" => $data]); // use square brackets because it is an array.? 
-});
-
-Route::get("/blogs/{id}", function (int $id) {
-    $data = [
-        "id" => $id,
-        "title" => "Laravel Dersleri",
-        "description" => "Nice Framework",
-        "likeCount" => 50,
-        "active" => true,
-    ];
-    return view("blogs-details", $data);
-});
+Route::get('/',  [HomeController::class, "index"]);
+Route::get('/index', [HomeController::class, "index"]);
+Route::get('/contact', [HomeController::class, "contact"]);
+Route::get("/blogs/{id}", [BlogController::class, "show"]);
+Route::get("/blogs", [BlogController::class, "index"]);
