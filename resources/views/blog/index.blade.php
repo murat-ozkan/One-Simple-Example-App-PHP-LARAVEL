@@ -7,14 +7,14 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ $blog['title'] }}</h5>
-                    <p>{{$blog["description"]}}</p>
                     <p>{{$blog["likeCount"]}} likes</p>
+                    <p><a href="blogs/{{$blog["id"]}}">Detaylar...</a></p>
                 </div>
             </div>
-        @else
+        {{-- @else
             <div class="alert alert-warning">
             Blog bulunamadı.
-            </div>        
+            </div>         --}}
         @endif
     @endforeach
 

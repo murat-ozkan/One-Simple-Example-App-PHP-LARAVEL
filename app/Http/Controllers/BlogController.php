@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blogs;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -11,30 +12,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $data = [
-            [
-                "id" => 1,
-                "title" => "Laravel Dersleri",
-                "description" => "Nice Framework",
-                "likeCount" => 50,
-                "active" => true,
-            ],
-            [
-                "id" => 2,
-                "title" => "Django Dersleri",
-                "description" => "Nice Framework",
-                "likeCount" => 41,
-                "active" => true,
-            ],
-            [
-                "id" => 3,
-                "title" => "React Dersleri",
-                "description" => "Nice Framework",
-                "likeCount" => 30,
-                "active" => true,
-            ],
-        ];
-        return view("blog.index", ["blogs" => $data]); // use square brackets because it is an array.?
+        $blogs = Blogs::all();
+        // $blogs = Blogs::orderBy("title", "desc")->get();
+        // $blogs = Blogs::where("title", "Laravel Dersleri")->get();
+        // $blogs = Blogs::latest()->get();
+        return view("blog.index", ["blogs" => $blogs]); // use square brackets because it is an array.? Key-Value.
     }
 
     /**
@@ -58,14 +40,8 @@ class BlogController extends Controller
      */
     public function show(int $id)
     {
-        $data = [
-            "id" => $id,
-            "title" => "Laravel Dersleri",
-            "description" => "Nice Framework",
-            "likeCount" => 50,
-            "active" => true,
-        ];
-        return view("blog.show", $data);
+        $blog = Blogs::find($id);
+        return view("blog.show", $blog);
     }
 
     /**
@@ -92,3 +68,51 @@ class BlogController extends Controller
         //
     }
 }
+
+
+
+//? -----------------Eski fonk----------------
+
+// public function index()
+// {
+//     $data = [
+//         [
+//             "id" => 1,
+//             "title" => "Laravel Dersleri",
+//             "description" => "Nice Framework",
+//             "likeCount" => 50,
+//             "active" => true,
+//         ],
+//         [
+//             "id" => 2,
+//             "title" => "Django Dersleri",
+//             "description" => "Nice Framework",
+//             "likeCount" => 41,
+//             "active" => true,
+//         ],
+//         [
+//             "id" => 3,
+//             "title" => "React Dersleri",
+//             "description" => "Nice Framework",
+//             "likeCount" => 30,
+//             "active" => true,
+//         ],
+//     ];
+//     return view("blog.index", ["blogs" => $data]); // use square brackets because it is an array.?
+// }
+
+
+
+
+
+// public function show(int $id)
+// {
+//     $data = [
+//         "id" => $id,
+//         "title" => "Laravel Dersleri",
+//         "description" => "Nice Framework",
+//         "likeCount" => 50,
+//         "active" => true,
+//     ];
+//     return view("blog.show", $data);
+// }

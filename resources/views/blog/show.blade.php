@@ -1,14 +1,14 @@
 @extends('layouts.layout')
 
 @section('content')
-Content Area
     @if ($active) 
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{$title}}</h5>
-                <p>{{$id}}</p>
+                <p>Kurs Id: {{$id}}</p>
                 <p>{{$description}}</p>
                 <p>{{$likeCount}} likes</p>
+                <a href="../blogs">Geri Dön</a>
             </div>
         </div>
     @else
