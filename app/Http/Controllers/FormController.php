@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FormController extends Controller
 {
@@ -17,9 +18,23 @@ class FormController extends Controller
         $validatedData = $request->validate(
             [
                 "course_title" => "required",
-                "course_content" => "required"
+                "course_content" => "required",
+                "course_confirm" => "accepted"
             ]
         );
+
+        // $validator = Validator::make(
+        //     $request->all(),
+        //     [
+        //         "course_title" => "required",
+        //         "course_content" => "required",
+        //         "course_confirm" => "required"
+        //     ]
+        // );
+
+
+        // Validation passed, so do something with the data
+        // ...
 
         // dd($request);
         // return $request->get("course_title");

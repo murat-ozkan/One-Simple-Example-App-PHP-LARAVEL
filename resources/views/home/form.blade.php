@@ -28,11 +28,20 @@
             @enderror
         </div>
         <div class="mb-3">
-            <input class="form-control @error("course_content") is-invalid @enderror" type="text" name="course_content" id="course_content" placeholder="Kurs İçeriği">
+            <input class="form-control" type="text" name="course_content" id="course_content" placeholder="Kurs İçeriği">
             @error('course_content')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+        <div class="form-check">
+            <input class="form-check-input" name="course_confirm" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Kabul Ediyorum
+            </label>
+            {{-- @error('course_confirm')
+                <div class="alert alert-danger">{{ $message }}</div>
+             @enderror --}}
+          </div>
         <div class="mb-3 text-center">
             <input type="submit" value="Kurs Ekle" name="">
         </div>
