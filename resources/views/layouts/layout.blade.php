@@ -22,6 +22,9 @@
                 <li class="nav-item">
                     <a href="/contact" class="nav-link">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/form" class="nav-link">Form</a>
+                </li>
             </ul>
         </div>
     </nav>
